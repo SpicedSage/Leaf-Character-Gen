@@ -1,0 +1,513 @@
+#:import utils kivy.utils
+<Button>:	
+	font_size: 18
+	color: (0,0,0,1)
+
+	text_size: self.size
+	valign: 'center'
+	halign: 'left'
+	padding_x: 10
+
+	background_normal: ""
+	background_color: (1,1,1,1)
+
+<ButtonGrid>:
+
+
+<LandingScreen>:
+    BoxLayout:
+        Button:
+            text: 'Goto settings'
+            on_press: root.manager.current = 'settings_s'
+        Button:
+            text: 'Goto pizza'
+            on_press: root.manager.current = 'pizza_s'
+        Button:
+            text: 'Goto main'
+            on_press: root.manager.current = 'program_s'
+        Button:
+            text: 'Quit'
+            on_press: root.landing_f.close()
+
+<SettingsScreen>:
+    BoxLayout:
+        Button:
+            text: 'My settings button'
+            on_press: root.settings_f.alert()
+        Button:
+            text: 'Back to menu'
+            on_press: root.manager.current = 'landing_s'
+
+<PizzaScreen>:
+	
+	inputname:inputname
+	pizza:pizza
+	color:color
+
+	GridLayout:
+		cols:1
+		size: root.width, root.height	
+
+		GridLayout:
+			cols:2
+
+			Label:
+				text: "Name"
+			TextInput:
+				id: inputname
+				multiline:False
+
+			Label:
+				text: "Pizza"
+			TextInput:
+				id: pizza
+				multiline:False
+			
+			Label:
+				text: "Colour"
+			TextInput:
+				id: color
+				multiline:False
+
+		Button: 
+			text: "Submit"
+			font_size:32
+			on_press: app.pizza_f.submit(root)
+
+			background_normal: ""
+			background_color: "#FFA539"
+
+<TestingProgram>:
+	
+	# wrapper
+	GridLayout:
+		canvas.before:
+            Color: 
+            	rgb: utils.get_color_from_hex('#DDDDDD')
+            Rectangle:
+                size: self.size
+                pos: self.pos
+		cols:2
+		
+		# sidebar
+		GridLayout:
+			canvas.before:
+                Color: 
+                	rgb: utils.get_color_from_hex('#FFFFFF')
+	            Rectangle:
+	                size: self.size
+	                pos: self.pos
+
+
+			rows:2
+
+			size_hint: None, None
+			size: 250, root.height
+
+			# logo
+			Image:
+				source: "tree-background-sized.jpg"
+
+				size_hint: None, None
+				size: 250, 150
+
+			# navigation
+			GridLayout:
+				cols:1
+
+	            row_default_height: 50
+	            row_force_default: True
+
+	            col_default_width: 250
+	            col_force_default: True
+			
+				ButtonGrid:
+					on_press: 
+						self.set_bgcolor(229, 229, 229, 100)
+
+					on_release:
+						self.set_bgcolor(255, 255, 255, 100)
+
+					cols:2
+
+					FloatLayout:
+						size_hint_x: None
+						width:60
+
+						Image:
+							source: "Py-Logo.png"
+
+							size_hint: None, None
+							size: 25, 25
+
+							pos: ((self.parent.width - self.width) / 2), self.parent.pos[1] + ((self.parent.height - self.height) / 2)
+
+					Label:
+						text: "Home"
+						font_size:18
+						color:0,0,0,1
+
+						text_size: self.size
+
+						halign: "left"
+						valign: "middle"
+
+						padding_x:10
+				
+				ButtonGrid:
+					on_press: 
+						self.set_bgcolor(229, 229, 229, 100)
+
+					on_release:
+						self.set_bgcolor(255, 255, 255, 100)
+					
+					cols:2
+
+					FloatLayout:
+						size_hint_x: None
+						width:60
+
+						Image:
+							source: "Py-Logo.png"
+
+							size_hint: None, None
+							size: 25, 25
+
+							pos: ((self.parent.width - self.width) / 2), self.parent.pos[1] + ((self.parent.height - self.height) / 2)
+
+					Label:
+						text: "Characters"
+						font_size:18
+						color:0,0,0,1
+
+						text_size: self.size
+
+						halign: "left"
+						valign: "middle"
+
+						padding_x:10
+				
+				ButtonGrid:
+					on_press: 
+						self.set_bgcolor(229, 229, 229, 100)
+
+					on_release:
+						self.set_bgcolor(255, 255, 255, 100)
+
+					cols:2
+
+					FloatLayout:
+						size_hint_x: None
+						width:60
+
+						Image:
+							source: "Py-Logo.png"
+
+							size_hint: None, None
+							size: 25, 25
+
+							pos: ((self.parent.width - self.width) / 2), self.parent.pos[1] + ((self.parent.height - self.height) / 2)
+
+					Label:
+						text: "Item Libraries"
+						font_size:18
+						color:0,0,0,1
+
+						text_size: self.size
+
+						halign: "left"
+						valign: "middle"
+
+						padding_x:10
+				
+				ButtonGrid:
+					on_press: 
+						self.set_bgcolor(229, 229, 229, 100)
+
+					on_release:
+						self.set_bgcolor(255, 255, 255, 100)
+
+					cols:2
+
+					FloatLayout:
+						size_hint_x: None
+						width:60
+
+						Image:
+							source: "Py-Logo.png"
+
+							size_hint: None, None
+							size: 25, 25
+
+							pos: ((self.parent.width - self.width) / 2), self.parent.pos[1] + ((self.parent.height - self.height) / 2)
+
+					Label:
+						text: "Guide"
+						font_size:18
+						color:0,0,0,1
+
+						text_size: self.size
+
+						halign: "left"
+						valign: "middle"
+
+						padding_x:10
+				
+				ButtonGrid:
+					on_press: 
+						self.set_bgcolor(229, 229, 229, 100)
+
+					on_release:
+						self.set_bgcolor(255, 255, 255, 100)
+
+					cols:2
+
+					FloatLayout:
+						size_hint_x: None
+						width:60
+
+						Image:
+							source: "Py-Logo.png"
+
+							size_hint: None, None
+							size: 25, 25
+
+							pos: ((self.parent.width - self.width) / 2), self.parent.pos[1] + ((self.parent.height - self.height) / 2)
+
+					Label:
+						text: "Send Feedback"
+						font_size:18
+						color:0,0,0,1
+
+						text_size: self.size
+
+						halign: "left"
+						valign: "middle"
+
+						padding_x:10
+				
+				ButtonGrid:
+					on_press: 
+						self.set_bgcolor(229, 229, 229, 100)
+
+					on_release:
+						self.set_bgcolor(255, 255, 255, 100)
+
+					cols:2
+
+					FloatLayout:
+						size_hint_x: None
+						width:60
+
+						Image:
+							source: "Py-Logo.png"
+
+							size_hint: None, None
+							size: 25, 25
+
+							pos: ((self.parent.width - self.width) / 2), self.parent.pos[1] + ((self.parent.height - self.height) / 2)
+
+					Label:
+						text: "Github"
+						font_size:18
+						color:0,0,0,1
+
+						text_size: self.size
+
+						halign: "left"
+						valign: "middle"
+
+						padding_x:10
+
+		# character info
+		GridLayout:
+			cols:1
+			rows:2
+
+			# character page navagation
+			GridLayout:
+				canvas.before:
+	                Color: 
+	                	rgb: utils.get_color_from_hex('#4caf50')
+		            Rectangle:
+		                size: self.size
+		                pos: self.pos
+
+				rows:2
+
+				size_hint_y: None
+				height: 100
+
+				GridLayout:
+					cols:3
+
+					Button:
+						background_default: ""
+						background_color: 0, 0, 0, 0
+
+						size_hint: None, None
+						size:50,50 
+
+						Image:
+							source: 'Py-Logo.png'
+
+							size_hint: None, None
+							size:25, 25
+
+							pos_hint: {'center_x': None, 'center_y': None}
+							pos: (self.parent.pos[0] + ((self.parent.width - self.width) / 2)), (self.parent.pos[1] + ((self.parent.height - self.height) / 2))
+
+					Label: 
+						text: "Temporary Text"
+						font_size:24
+						color: 1, 1, 1, 1
+
+						text_size: self.size
+
+						halign: "left"
+						valign: "middle"
+
+						padding_x:10
+
+					Button:
+						background_color: 0, 0, 0, 0
+
+						size_hint: None, None
+						size:50,50 
+
+						Image:
+							source: 'Py-Logo.png'
+
+							size_hint: None, None
+							size:25, 25
+
+							pos_hint: {'center_x': None, 'center_y': None}
+							pos: (self.parent.pos[0] + ((self.parent.width - self.width) / 2)), (self.parent.pos[1] + ((self.parent.height - self.height) / 2))
+
+				GridLayout:
+					rows:1
+
+					ButtonGrid:
+				        cols:1
+				        rows:2
+
+						Label:
+							text: "Stats"
+							font_size:18
+							halign: "center"
+
+						GridLayout:
+							cols:1
+							rows:1
+
+							size_hint_y: None
+							height: 2
+
+							canvas.after:
+								Color:
+									rgb: utils.get_color_from_hex('#d13b2e')
+					            Rectangle:
+					                size: self.size
+					                pos: self.pos
+
+
+					ButtonGrid:
+				        cols:1
+				        rows:2
+
+						Label:
+							text: "Features"
+							font_size:18
+							halign: "center"
+
+						GridLayout:
+							cols:1
+							rows:1
+
+							size_hint_y: None
+							height: 2
+
+							canvas.after:
+								Color:
+									rgba: utils.get_color_from_hex('#d13b2e00')
+					            Rectangle:
+					                size: self.size
+					                pos: self.pos
+
+
+					ButtonGrid:
+				        cols:1
+				        rows:2
+
+						Label:
+							text: "Inventory"
+							font_size:18
+							halign: "center"
+
+						GridLayout:
+							cols:1
+							rows:1
+
+							size_hint_y: None
+							height: 2
+
+							canvas.after:
+								Color:
+									rgba: utils.get_color_from_hex('#d13b2e00')
+					            Rectangle:
+					                size: self.size
+					                pos: self.pos
+
+
+					ButtonGrid:
+				        cols:1
+				        rows:2
+
+						Label:
+							text: "Persona"
+							font_size:18
+							halign: "center"
+
+						GridLayout:
+							cols:1
+							rows:1
+
+							size_hint_y: None
+							height: 2
+
+							canvas.after:
+								Color:
+									rgba: utils.get_color_from_hex('#d13b2e00')
+					            Rectangle:
+					                size: self.size
+					                pos: self.pos
+
+
+					ButtonGrid:
+				        cols:1
+				        rows:2
+
+						Label:
+							text: "Journal"
+							font_size:18
+							halign: "center"
+
+						GridLayout:
+							cols:1
+							rows:1
+
+							size_hint_y: None
+							height: 2
+
+							canvas.after:
+								Color:
+									rgba: utils.get_color_from_hex('#d13b2e00')
+					            Rectangle:
+					                size: self.size
+					                pos: self.pos
+
+			# page content
+			StackLayout:
+				orientation: "lr-tb"
+
+				

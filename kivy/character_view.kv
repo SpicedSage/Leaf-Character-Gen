@@ -1,8 +1,8 @@
 #:import utils kivy.utils
 
-
 <CharacterView>:
-	
+	size_hint: 1,1
+
 	# wrapper
 	GridLayout:
 		canvas.before:
@@ -15,6 +15,7 @@
 		
 		# sidebar
 		GridLayout:
+			id: sidebar
 			canvas.before:
                 Color: 
                 	rgb: utils.get_color_from_hex('#FFFFFF')
@@ -461,7 +462,342 @@
 					                pos: self.pos
 
 			# page content
-			StackLayout:
-				orientation: "lr-tb"
+			GridLayout:
+				cols:1
+				rows:1
 
-				
+				FloatLayout:
+					ScrollView:
+						do_scroll_x: False
+						do_scroll_y: True
+
+						size_hint: None, None
+						width: self.parent.width - 15
+						height: self.parent.height - 15
+
+						pos_hint: {'center_y': 0.5, 'center_x': 0.5}
+
+						StackLayout:
+							size_hint: 1.0, None
+							height: self.minimum_height
+
+							orientation: "lr-tb"
+							spacing: [7, 7]
+							
+							# Health
+
+							# stat block
+							GridLayout:
+								cols:1
+								rows:6
+
+								size_hint: None, None
+								width: root.resize()
+								height: self.minimum_height
+
+								row_default_height:100
+								row_force_default: True
+
+								# cols_minimum: {0:240,1:240,2:240,3:240,4:240,5:240}
+
+								spacing: [7, 7]
+
+								# Strength
+								GridLayout:
+									canvas.before:
+										Color:
+											rgba: 1,1,1,1
+										Rectangle:
+											size: self.size
+											pos: self.pos
+
+									cols:2
+									rows:1
+
+									row_default_height:100
+									row_force_default: True
+
+									FloatLayout:
+										size_hint_x: None
+										width: 75
+
+										GridLayout:
+											cols:1
+											rows:2
+
+											size_hint_y: None
+											height: 75
+
+											pos_hint: {'center_y': 0.5, 'center_x': 0.5}
+
+											Label:
+												color: 0,0,0,1
+												font_size:32
+												text: "10"
+
+											Label:
+												color: 0.4,0.4,0.4,1
+												font_size:24
+												text: "+0"
+
+									Label:
+										color: 0,0,0,1
+										text: "Strength"
+
+										font_size:16
+										text_size: self.size
+
+										halign: "left"
+										valign: "middle"
+
+										padding_x:10
+								
+								# Dexterity
+								GridLayout:
+									canvas.before:
+										Color:
+											rgba: 1,1,1,1
+										Rectangle:
+											size: self.size
+											pos: self.pos
+
+									cols:2
+									rows:1
+
+									row_default_height:100
+									row_force_default: True
+
+									FloatLayout:
+										size_hint_x: None
+										width: 75
+
+										GridLayout:
+											cols:1
+											rows:2
+
+											size_hint_y: None
+											height: 75
+
+											pos_hint: {'center_y': 0.5, 'center_x': 0.5}
+
+											Label:
+												color: 0,0,0,1
+												font_size:32
+												text: "10"
+
+											Label:
+												color: 0.4,0.4,0.4,1
+												font_size:24
+												text: "+0"
+
+									Label:
+										color: 0,0,0,1
+										text: "Dexterity"
+
+										font_size:16
+										text_size: self.size
+
+										halign: "left"
+										valign: "middle"
+
+										padding_x:10
+								
+								# Constitution
+								GridLayout:
+									canvas.before:
+										Color:
+											rgba: 1,1,1,1
+										Rectangle:
+											size: self.size
+											pos: self.pos
+
+									cols:2
+									rows:1
+
+									row_default_height:100
+									row_force_default: True
+
+									FloatLayout:
+										size_hint_x: None
+										width: 75
+
+										GridLayout:
+											cols:1
+											rows:2
+
+											size_hint_y: None
+											height: 75
+
+											pos_hint: {'center_y': 0.5, 'center_x': 0.5}
+
+											Label:
+												color: 0,0,0,1
+												font_size:32
+												text: "10"
+
+											Label:
+												color: 0.4,0.4,0.4,1
+												font_size:24
+												text: "+0"
+
+									Label:
+										color: 0,0,0,1
+										text: "Constitution"
+
+										font_size:16
+										text_size: self.size
+
+										halign: "left"
+										valign: "middle"
+
+										padding_x:10
+								
+								# Itelligence
+								GridLayout:
+									canvas.before:
+										Color:
+											rgba: 1,1,1,1
+										Rectangle:
+											size: self.size
+											pos: self.pos
+
+									cols:2
+									rows:1
+
+									row_default_height:100
+									row_force_default: True
+
+									FloatLayout:
+										size_hint_x: None
+										width: 75
+
+										GridLayout:
+											cols:1
+											rows:2
+
+											size_hint_y: None
+											height: 75
+
+											pos_hint: {'center_y': 0.5, 'center_x': 0.5}
+
+											Label:
+												color: 0,0,0,1
+												font_size:32
+												text: "10"
+
+											Label:
+												color: 0.4,0.4,0.4,1
+												font_size:24
+												text: "+0"
+
+									Label:
+										color: 0,0,0,1
+										text: "Intelligence"
+
+										font_size:16
+										text_size: self.size
+
+										halign: "left"
+										valign: "middle"
+
+										padding_x:10
+								
+								# Wisdom
+								GridLayout:
+									canvas.before:
+										Color:
+											rgba: 1,1,1,1
+										Rectangle:
+											size: self.size
+											pos: self.pos
+
+									cols:2
+									rows:1
+
+									row_default_height:100
+									row_force_default: True
+
+									FloatLayout:
+										size_hint_x: None
+										width: 75
+
+										GridLayout:
+											cols:1
+											rows:2
+
+											size_hint_y: None
+											height: 75
+
+											pos_hint: {'center_y': 0.5, 'center_x': 0.5}
+
+											Label:
+												color: 0,0,0,1
+												font_size:32
+												text: "10"
+
+											Label:
+												color: 0.4,0.4,0.4,1
+												font_size:24
+												text: "+0"
+
+									Label:
+										color: 0,0,0,1
+										text: "Wisdom"
+
+										font_size:16
+										text_size: self.size
+
+										halign: "left"
+										valign: "middle"
+
+										padding_x:10
+								
+								# Charisma
+								GridLayout:
+									canvas.before:
+										Color:
+											rgba: 1,1,1,1
+										Rectangle:
+											size: self.size
+											pos: self.pos
+
+									cols:2
+									rows:1
+
+									row_default_height:100
+									row_force_default: True
+
+									FloatLayout:
+										size_hint_x: None
+										width: 75
+
+										GridLayout:
+											cols:1
+											rows:2
+
+											size_hint_y: None
+											height: 75
+
+											pos_hint: {'center_y': 0.5, 'center_x': 0.5}
+
+											Label:
+												color: 0,0,0,1
+												font_size:32
+												text: "10"
+
+											Label:
+												color: 0.4,0.4,0.4,1
+												font_size:24
+												text: "+0"
+
+									Label:
+										color: 0,0,0,1
+										text: "Charisma"
+
+										font_size:16
+										text_size: self.size
+
+										halign: "left"
+										valign: "middle"
+
+										padding_x:10

@@ -1,5 +1,10 @@
 # Leaf-Character-Gen
-A Dungeons and Dragons 5e character manager based heavily off of Dice Cloud  
+A Dungeons and Dragons 5e character-manager based heavily off of [Dice Cloud](https://dicecloud.com)    
+
+## Requirements
+Librarys and Software needed to run, please note that at this current point in time that this has only been tested on Windows 10/11 machines
+* [Python 3.10.6](https://www.python.org/downloads/)
+* [Kivy 2.1.0](https://kivy.org/)
 
 ## DiceCloud Credits
 Official Dice Cloud content can be found here

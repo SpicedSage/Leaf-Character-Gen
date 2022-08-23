@@ -50,11 +50,15 @@
 			size: 250, root.height
 
 			# logo
-			Image:
-				source: "Images/Logo/Tree-Logo.jpg"
 
-				size_hint: None, None
-				size: 250, 150
+			Image:
+				source: "Images/Logo/Breeze-Logo_5x3.png"
+				allow_stretch: True
+		        keep_ratio: False
+		        size_hint_y: None
+		        size_hint_x: None
+		        width: self.parent.width
+		        height: 150
 
 			# navigation
 			GridLayout:
@@ -66,6 +70,7 @@
 	            col_default_width: 250
 	            col_force_default: True
 			
+				# home
 				ButtonGrid:
 					on_press: 
 						self.set_bgcolor(229, 229, 229, 100)
@@ -99,6 +104,7 @@
 
 						padding_x:10
 				
+				# character list
 				ButtonGrid:
 					on_press: 
 						self.set_bgcolor(229, 229, 229, 100)
@@ -132,6 +138,7 @@
 
 						padding_x:10
 				
+				# item library
 				ButtonGrid:
 					on_press: 
 						self.set_bgcolor(229, 229, 229, 100)
@@ -165,6 +172,7 @@
 
 						padding_x:10
 				
+				# usabe guide
 				ButtonGrid:
 					on_press: 
 						self.set_bgcolor(229, 229, 229, 100)
@@ -198,6 +206,7 @@
 
 						padding_x:10
 				
+				# Feedback page
 				ButtonGrid:
 					on_press: 
 						self.set_bgcolor(229, 229, 229, 100)
@@ -231,9 +240,11 @@
 
 						padding_x:10
 				
+				# Github
 				ButtonGrid:
 					on_press: 
 						self.set_bgcolor(229, 229, 229, 100)
+						root.view_source()
 
 					on_release:
 						self.canvas.before.clear()

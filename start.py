@@ -35,6 +35,7 @@ here if you got this far, you deserve a cookie, take it, its for you :) 🍪🥛
 
 import math
 import time
+import webbrowser
 
 # config so things work gud-ly
 from kivy.config import Config
@@ -67,7 +68,7 @@ from kivy.graphics import Color, Rectangle
 from kivy.core.window import Window
 
 # file to load up on start
-landing_file = 'kivy\character_view.kv'
+landing_file = 'kivy/character_view.kv'
 
 # load fileB
 Builder.load_file(landing_file)
@@ -85,7 +86,6 @@ class ButtonGrid(ButtonBehavior, GridLayout):
 
 class ButtonStack(ButtonBehavior, StackLayout):
 	pass
-
 # integer only input box
 class IntInput(TextInput):
 	def insert_text(self, substring, from_undo=False):
@@ -184,6 +184,10 @@ class CharacterView(Screen):
 		self.hide_widget(self.global_widgets["sidebar"])
 
 
+	# send user to github repo
+	def view_source(self):
+		webbrowser.open("https://github.com/SpicedSage/Leaf-Character-Gen")
+
 # program class
 class MainApp(App):
 	def build(self):
@@ -203,6 +207,10 @@ class MainApp(App):
 			# print(sm.screens)
 
 		Window.bind(on_resize=resize)
+
+		self.title = 'Leaf Character View'
+		self.icon = "Images/Logo/Leaf-Logo_large.png"
+
 
 		return sm
 
